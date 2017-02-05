@@ -41,6 +41,9 @@ SCRIPTS_DIR=$3
 readarray PROJECTS < $4 
 PATH_TO_CODE_MAAT_JAR=$5 #where to find code-maat?
 
+DATE=`date +%Y-%m-%d`
+
+echo "Analyse data before ${DATE}"
 
 mkdir -p ${RESULTS_DIR}
 
@@ -64,7 +67,7 @@ while read -r line; do
     echo `pwd` 
     echo "Running git log for project $PROJECT"
     echo "$EVO_LOG"
-    git log --pretty=format:'[%h] %an %ad %s' --date=short --numstat --before=2016-03-20 > ${EVO_LOG}
+    git log --pretty=format:'[%h] %an %ad %s' --date=short --numstat --before=${DATE} > ${EVO_LOG}
 
     echo "Running CLOC for $PROJECT"
     cloc  ./ --by-file --csv --report-file=${CLOC_LOG}
