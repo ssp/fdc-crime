@@ -21,22 +21,26 @@ function run_code_maat_analysis {
     echo "Running code maat analysis $1 $2 $3"
     java -jar $PATH_TO_CODE_MAAT_JAR -l $1 -c git -a $2 > $3
 }
-#where are your projects?
-BASE_PATH=$1 
-#where should the script write results to?
-RESULTS_DIR=$2 
-#where are the maat scripts?
-SCRIPTS_DIR=$3 
-#which projects?
-#PROJECTS=
-readarray PROJECTS < $4 
-PATH_TO_CODE_MAAT_JAR=$5 #where to find code-maat?
 
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ] || [ -z "$5" ];
 then
     echo "Please supply arguments BASE_PATH, RESULT_DIR, SCRIPTS_DIR, PROJECTS, and PATH_TO_CODE_MAAT_JAR"
     exit
 fi
+
+#where are your projects?
+BASE_PATH=$1 
+
+#where should the script write results to?
+RESULTS_DIR=$2 
+#where are the maat scripts?
+SCRIPTS_DIR=$3 
+
+#which projects?
+#PROJECTS=
+readarray PROJECTS < $4 
+PATH_TO_CODE_MAAT_JAR=$5 #where to find code-maat?
+
 
 mkdir -p ${RESULTS_DIR}
 
