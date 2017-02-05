@@ -1,6 +1,7 @@
 # fdc-crime
 ## About
 Little helpers to collect stats about your code using [code-maat] (https://github.com/adamtornhill/code-maat).
+
 1. Frequency (revisions per file)
 2. Frequency & CLOC (hotspot analysis)
 3. Frequency & CLOC & Complexity (compliex hotspot analysis)
